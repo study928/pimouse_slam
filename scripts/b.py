@@ -83,7 +83,19 @@ class Motor():
         self.pub_odom.publish(odom)
 
         self.last_time = self.cur_time
+    
+    def send_base_link(self):
+        self.cur_time = rospy.Time.now()
 
+        dt = self.cur_time.to_sec() - self.last_time.to_sec()
+        self.x += self.vx * math.cos(self.th) * dt 
+        self.y += self.vx * math.sin(self.th) * dt
+        self.th += self.vth * dt
+
+        q = tf.transformations.quaternion_from_euler(0, 0, self.th)
+        self.bc_odom.sendTransform((self.x, self.y ,0.10), q, self.cur_time, "base_laser", "base_link")
+        self.last_time = self.cur_time
+        
     def callback_raw_freq(self,message):
         self.set_raw_freq(message.left_hz,message.right_hz)
 
@@ -133,4 +145,5 @@ if __name__ == '__main__':
     rate = rospy.Rate(10)
     while not rospy.is_shutdown():
         m.send_odom()
+        m.send_base_link()
         rate.sleep()
