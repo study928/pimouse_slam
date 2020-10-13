@@ -99,8 +99,8 @@ class Motor():
 
         base_link = Odometry()
         base_link.header.stamp = self.cur_time
-        base_link.header.frame_id ='odom'
-        base_link.child_frame_id = 'base_link'
+        base_link.header.frame_id ='base_link'
+        base_link.child_frame_id = 'base_laser'
 
         base_link.pose.pose.position = Point(self.x, self.y, 0)
         base_link.pose.pose.orientation = Quaternion(*q)
