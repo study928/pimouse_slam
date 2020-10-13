@@ -25,6 +25,8 @@ class Motor():
         
         self.pub_odom = rospy.Publisher('odom', Odometry, queue_size=10)
         self.bc_odom = tf.TransformBroadcaster()
+        self.pub_base_link = rospy.Publisher('base_link', Odometry, queue_size=10)
+        self.bc_base_link = tf.TransformBroadcaster()
 
         self.x, self.y, self.th = 0.0, 0.0, 0.0
         self.vx, self.vth = 0.0, 0.0
@@ -93,9 +95,24 @@ class Motor():
         self.th += self.vth * dt
 
         q = tf.transformations.quaternion_from_euler(0, 0, self.th)
-        self.bc_odom.sendTransform((self.x, self.y ,0.10), q, self.cur_time, "base_laser", "base_link")
+        self.bc_base_link.sendTransform((self.x, self.y ,0.10), q, self.cur_time, "base_laser", "base_link")
+
+        base_link = Odometry()
+        base_link.header.stamp = self.cur_time
+        base_link.header.frame_id ='odom'
+        base_link.child_frame_id = 'base_link'
+
+        base_link.pose.pose.position = Point(self.x, self.y, 0)
+        base_link.pose.pose.orientation = Quaternion(*q)
+
+        base_link.twist.twist.linear.x = self.vx
+        base_link.twist.twist.linear.y = 0.0
+        base_link.twist.twist.angular.z = self.vth
+
+        self.pub_base_link.publish(base_link)
+
         self.last_time = self.cur_time
-        
+
     def callback_raw_freq(self,message):
         self.set_raw_freq(message.left_hz,message.right_hz)
 
