@@ -19,7 +19,7 @@ class Motor():
         self.srv_off = rospy.Service('motor_off', Trigger, self.callback_off)
         self.srv_tm = rospy.Service('timed_motion', TimedMotion, self.callback_tm)
 
-        self.pub_odom = rospy.Publisher('odom', Odometry, queue_size=20)
+        self.pub_odom = rospy.Publisher('odom', Odometry, queue_size=10)
         self.bc_odom = tf.TransformBroadcaster()
 
         self.x, self.y, self.th = 0.0, 0.0, 0.0
