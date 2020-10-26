@@ -54,7 +54,8 @@
   <exec_depend>gmapping</exec_depend>
   <exec_depend>pimouse_ros</exec_depend>
   <exec_depend>urg_node</exec_depend>
-
+  <exec_depend>joy</exec_depend>
+  <exec_depend>ps3joy</exec_depend>
 
   <!-- The export tag contains other, unspecified, tags -->
   <export>
