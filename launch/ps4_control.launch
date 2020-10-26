@@ -4,5 +4,5 @@
   <!-- joy_node -->
   <node pkg='joy' name='joy' type='joy' required='true' />
   <!-- ps4_cmd_vel -->
-  <node pkg='pimouse_slam' name='ps4_cmd_vel' type='ps4_cmd_vel' required='true'
+  <node pkg='pimouse_slam' name='ps4_cmd_vel' type='ps4_cmd_vel' required='true' />
 </launch>
