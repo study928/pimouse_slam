@@ -16,6 +16,10 @@ class JoyTwist(object):
         if joy_msg.buttons[0] == 1:
             twist.linear.x = joy_msg.axes[7] * 0.2
             twist.angular.z = joy_msg.axes[6] * 3.14 / 4
+        if joy_msg.buttons[2] == 1:
+            twist.linear.x = 0
+            twist.angular.z = 0
+
         else:
             twist.linear.x = 0
             twist.angular.z = 0
