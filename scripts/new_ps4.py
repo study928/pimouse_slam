@@ -9,7 +9,6 @@ from actionlib_msgs.msg import GoalID
 
 class JoyTwist(object):
     def __init__(self):
-    
         self._joy_sub = rospy.Subscriber('/joy', Joy, self.joy_callback, queue_size=1)
         self._twist_pub = rospy.Publisher('/joy_vel', Twist, queue_size=1)
         self._goalid_pub = rospy.Publisher('/move_base/cancel', GoalID, queue_size=1)
