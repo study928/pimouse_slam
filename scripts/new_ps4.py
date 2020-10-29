@@ -29,6 +29,7 @@ class JoyTwist(object):
             twist.linear.x = 0
             twist.angular.z = 0
         self._twist_pub.publish(twist)
+        self._goalid_pub.publish(goalid)
 
 
 if __name__ == '__main__':
