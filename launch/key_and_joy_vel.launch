@@ -1,0 +1,9 @@
+<launch>
+  <node pkg='pimouse_slam' name='motors' type='motors.py' required='true' />
+  
+  <node pkg="pimouse_slam" name="keyboard_cmd_vel" type="key_vel.py" required="true" />
+  <!-- joy_node -->
+  <node pkg='joy' name='joy' type='joy_node' required='true' />
+  <!-- ps4_cmd_vel -->
+  <node pkg='pimouse_slam' name='ps4_cmd_vel' type='ps4_cmd_vel.py' required='true' />
+</launch>
