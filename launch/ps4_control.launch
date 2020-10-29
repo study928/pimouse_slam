@@ -7,6 +7,7 @@
   <node pkg='joy' name='joy' type='joy_node' required='true' />
   <!-- ps4_cmd_vel -->
 <<<<<<< HEAD
+<<<<<<< HEAD
   <node pkg='pimouse_slam' name='ps4_cmd_vel' type='ps4_cmd_vel.py' required='true' />
 </launch>
 =======
@@ -14,3 +15,8 @@
   <node pkg='pimouse_slam' name='ps4_cmd_vel' type='new_ps4.py' required='true' />
 </launch>
 >>>>>>> 1fd3cb722cd7805cb0201517c9d80b546214642c
+=======
+  <node pkg='pimouse_slam' name='ps4_cmd_vel' type='ps4_cmd_vel.py' required='true' />
+  <!--<node pkg='pimouse_slam' name='ps4_cmd_vel' type='new_ps4.py' required='true' />-->
+</launch>
+>>>>>>> 5fb59eacaf009a36fab080ef302797b5a58317d2
