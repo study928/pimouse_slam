@@ -9,7 +9,7 @@ from sensor_msgs.msg import Joy
 class JoyTwist(object):
     def __init__(self):
         self._joy_sub = rospy.Subscriber('/joy', Joy, self.joy_callback, queue_size=1)
-        self._twist_pub = rospy.Publisher('/cmd_vel', Twist, queue_size=1)
+        self._twist_pub = rospy.Publisher('/joy_vel', Twist, queue_size=1)
 
     def joy_callback(self, joy_msg):
         twist = Twist()
