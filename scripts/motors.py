@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 #motors.py
 
-import sys, rospy, math, tf
+import sys, rospy, math, tf, time
 from pimouse_ros.msg import MotorFreqs
 from geometry_msgs.msg import Twist, Quaternion, TransformStamped, Point
 from std_srvs.srv import Trigger, TriggerResponse
@@ -29,6 +29,7 @@ class Motor():
         self.last_time = self.cur_time
 
     def send_odom(self):
+        start = time.time()
         self.cur_time = rospy.Time.now()
 
         dt = self.cur_time.to_sec() - self.last_time.to_sec()
