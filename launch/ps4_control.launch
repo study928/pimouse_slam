@@ -3,6 +3,7 @@
   <node pkg='pimouse_slam' name='motors' type='motors.py' required='true' />
   <!--<node pkg="pimouse_slam" name="motors" type="motors_virtual.py" required="true" />
   <node pkg="pimouse_slam" name="keyboard_cmd_vel" type="key_vel.py" required="true" />-->
+
   <!-- joy_node -->
   <node pkg='joy' name='joy' type='joy_node' required='true' />
   <!-- ps4_cmd_vel -->
@@ -17,6 +18,10 @@
 >>>>>>> 1fd3cb722cd7805cb0201517c9d80b546214642c
 =======
   <node pkg='pimouse_slam' name='ps4_cmd_vel' type='ps4_cmd_vel.py' required='true' />
+<<<<<<< HEAD
   <!--<node pkg='pimouse_slam' name='ps4_cmd_vel' type='new_ps4.py' required='true' />-->
 </launch>
 >>>>>>> 5fb59eacaf009a36fab080ef302797b5a58317d2
+=======
+</launch>
+>>>>>>> a56420c61b063b0e4a95c471746a89801de3617b
